@@ -7,8 +7,8 @@ export default function NewOrganizationForm() {
   const router = useRouter();
 
   const [name, setName] = useState('');
-  const [type, setType] = useState('');
   const [owner, setOwner] = useState('');
+  const [type, setType] = useState('');
   const [industry, setIndustry] = useState('');
   const [locationCity, setLocationCity] = useState('');
   const [locationRegion, setLocationRegion] = useState('');
@@ -77,9 +77,9 @@ export default function NewOrganizationForm() {
               <svg className="badge-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
               </svg>
-              <span className="badge-text">ዐዲስ ድርጅት</span>
+              <span className="badge-text">አዲስ ድርጅት</span>
             </div>
-            <h1 className="form-title">ዐዲስ ድርጅቱን ይመዝግቡ</h1>
+            <h1 className="form-title">አዲስ ድርጅቱን ይመዝግቡ</h1>
             <p className="form-subtitle">
               በፍሬ ሃይማኖት ሰ/ት/ቤት የሚያገለግሉ ተማሪዎች የሚሰሩባቸውን ድርጅቶች በሌሎች አባላት እንዲታወቅና ለሥራም የአባላት ቀዳሚ ምርጫ እንዲሆኑ በሰ/ት/ቤቱ የተዘጋጀ መመዝገቢያ
             </p>
@@ -107,7 +107,7 @@ export default function NewOrganizationForm() {
             {/* Owner */}
             <div className="field-half">
               <label htmlFor="owner" className="field-label">
-                የድርጅቱ ባለቤት ስም
+                የድርጅቱ ባለቤት ስም <span className="required">*</span>
               </label>
               <div className="input-wrapper">
                 <input
@@ -115,7 +115,8 @@ export default function NewOrganizationForm() {
                   type="text"
                   value={owner}
                   onChange={(e) => setOwner(e.target.value)}
-                  placeholder="የባለቤት ስም"
+                  placeholder="የባለቤት ሙሉ ስም"
+                  required
                   className="form-input"
                 />
               </div>
@@ -124,7 +125,7 @@ export default function NewOrganizationForm() {
             {/* Type */}
             <div className="field-half">
               <label htmlFor="type" className="field-label">
-                የድርጅቱ ዐይነት
+                የድርጅቱ አይነት <span className="required">*</span>
               </label>
               <div className="input-wrapper">
                 <input
@@ -133,6 +134,7 @@ export default function NewOrganizationForm() {
                   value={type}
                   onChange={(e) => setType(e.target.value)}
                   placeholder="e.g. NGO፣ የበጎ አድራጎት ድርጅት፣ መደበኛ ድርጅት"
+                  required
                   className="form-input"
                 />
               </div>
@@ -193,7 +195,7 @@ export default function NewOrganizationForm() {
             {/* Website */}
             <div className="field-half">
               <label htmlFor="website" className="field-label">
-                ድኅረ ገጽ (ካለዎት)
+                ድህረ ገጽ (ካለዎት)
               </label>
               <div className="input-wrapper">
                 <input
@@ -292,7 +294,7 @@ export default function NewOrganizationForm() {
                         <svg className="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
                         </svg>
-                        ድርጅቶን ይመዝግቡ
+                        ድርጅቱን ይመዝግቡ
                       </>
                     )}
                   </span>
@@ -303,7 +305,7 @@ export default function NewOrganizationForm() {
                   onClick={() => router.back()}
                   className="btn-secondary"
                 >
-                  Cancel
+                  ተመለስ
                 </button>
               </div>
             </div>

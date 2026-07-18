@@ -20,11 +20,11 @@ export default async function Home() {
             </div>
             
             <h1 className="hero-title">
-              Community jobs and talent registry for Ethiopia
+              የፍሬ ሃይማኖት ሰ/ት/ቤት የድርጅቶች መዝገብ
             </h1>
             
             <p className="hero-description">
-              Discover organizations and people, and manage pending submissions with confidence.
+              የሰንበት ት/ቤት አባላት ድርጅቶችን ይገናኙ
             </p>
 
             <div className="hero-actions">
@@ -32,30 +32,30 @@ export default async function Home() {
                 <svg className="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
-                Browse Organizations
+                ድርጅቶችን ይመልከቱ
               </Link>
               <Link href="/people" className="btn-secondary btn-large">
                 <svg className="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
-                View People
+                አባላትን ይመልከቱ
               </Link>
             </div>
 
             <div className="hero-stats">
               <div className="stat-item">
                 <span className="stat-number">50+</span>
-                <span className="stat-label">Organizations</span>
+                <span className="stat-label">ድርጅቶች</span>
               </div>
               <div className="stat-divider"></div>
               <div className="stat-item">
                 <span className="stat-number">200+</span>
-                <span className="stat-label">Community Members</span>
+                <span className="stat-label">የኅብረተሰብ አባላት</span>
               </div>
               <div className="stat-divider"></div>
               <div className="stat-item">
                 <span className="stat-number">10+</span>
-                <span className="stat-label">Cities</span>
+                <span className="stat-label">ከተማዎች</span>
               </div>
             </div>
           </div>
@@ -85,35 +85,34 @@ export default async function Home() {
               </div>
             </div>
             <div className="welcome-content">
-              <h2 className="welcome-title">Welcome to fh-marketplace</h2>
+              <h2 className="welcome-title">እንኳን ወደ FH-Marketplace በደኅና መጡ</h2>
               <p className="welcome-description">
-                fh-marketplace helps connect Ethiopian organizations and talent through a clean,
-                simple dashboard. Use the navigation above to explore organizations and people.
+                የሰንበት ትምህርት ቤት አባላት ሥራዎችን ለተለያዩ ደንበኞች በማስተዋወቅ አባላትን በሥራው ዓለም የሚያገናኝ
               </p>
               <div className="welcome-features">
                 <div className="feature-item">
                   <svg className="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span>Discover organizations</span>
+                  <span>ድርጅቶችን ያግኙ</span>
                 </div>
                 <div className="feature-item">
                   <svg className="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span>Find talented people</span>
+                  <span>ችሎታ ያላቸውን ሰዎች ያግኙ</span>
                 </div>
                 <div className="feature-item">
                   <svg className="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span>Manage submissions</span>
+                  <span>ትዕዛዞችን ይከታተሉ</span>
                 </div>
                 <div className="feature-item">
                   <svg className="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span>Build community</span>
+                  <span>ማኅበረሰብን እንፍጠር</span>
                 </div>
               </div>
             </div>

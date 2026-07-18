@@ -12,7 +12,7 @@ interface Organization {
   locationCity?: string | null;
   locationRegion?: string | null;
   website?: string | null;
-  phone: string[];
+  phone: string;
   email?: string | null;
   description?: string | null;
   status: string;
@@ -105,7 +105,7 @@ export default function OrgPage() {
               <svg className="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
               </svg>
-              ዐዲስ ድርጅት
+              አዲስ ድርጅት
             </Link>
           </div>
         </section>
@@ -120,7 +120,7 @@ export default function OrgPage() {
             </div>
             <div className="stat-content">
               <p className="stat-value">{orgs.length}</p>
-              <p className="stat-label">የድርጅቶች ዝርዝር</p>
+              <p className="stat-label">ጠቅላላ ድርጅቶች</p>
             </div>
           </div>
           <div className="stat-card">
@@ -131,7 +131,7 @@ export default function OrgPage() {
             </div>
             <div className="stat-content">
               <p className="stat-value">{orgs.filter(o => o.verified).length}</p>
-              <p className="stat-label">Verified</p>
+              <p className="stat-label">የተረጋገጡ</p>
             </div>
           </div>
           <div className="stat-card">
@@ -141,8 +141,8 @@ export default function OrgPage() {
               </svg>
             </div>
             <div className="stat-content">
-              <p className="stat-value">{new Set(orgs.map(o => o.owner)).size}</p>
-              <p className="stat-label">የድርጅት ባለቤት</p>
+              <p className="stat-value">{new Set(orgs.map(o => o.type)).size}</p>
+              <p className="stat-label">የድርጅት አይነቶች</p>
             </div>
           </div>
           <div className="stat-card">
@@ -174,25 +174,27 @@ export default function OrgPage() {
                 <svg className="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                 </svg>
-                ዐዲስ ድርጅት 
+                አዲስ ድርጅት 
               </Link>
             </div>
           </section>
         ) : (
           <section className="org-list-section">
             <div className="list-header">
-              <p className="list-count">{orgs.length} organization{orgs.length !== 1 ? 's' : ''}</p>
+              <p className="list-count">{orgs.length} ድርጅት{orgs.length !== 1 ? 'ዎች' : ''}</p>
               <div className="list-filters">
                 <select className="filter-select" defaultValue="all">
-                  <option value="all">ዐይነቶች</option>
+                  <option value="all">ሁሉም አይነቶች</option>
                   {Array.from(new Set(orgs.map(o => o.type))).map(type => (
                     <option key={type} value={type}>{type}</option>
                   ))}
                 </select>
                 <select className="filter-select" defaultValue="all">
-                  <option value="all">All Status</option>
-                  <option value="verified">Verified</option>
-                  <option value="pending">Pending</option>
+                  <option value="all">ሁሉም ሁኔታዎች</option>
+                  <option value="verified">የተረጋገጠ</option>
+                  <option value="pending">በመጠባበቅ ላይ</option>
+                  <option value="active">ንቁ</option>
+                  <option value="inactive">እንቅስቃሴ የለም</option>
                 </select>
               </div>
             </div>
@@ -205,7 +207,7 @@ export default function OrgPage() {
                       <div className="org-name-wrapper">
                         <h3 className="org-name">{org.name}</h3>
                         {org.verified && (
-                          <span className="verified-badge" title="Verified Organization">
+                          <span className="verified-badge" title="የተረጋገጠ ድርጅት">
                             <svg className="verified-icon" fill="currentColor" viewBox="0 0 20 20">
                               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                             </svg>
@@ -213,7 +215,10 @@ export default function OrgPage() {
                         )}
                       </div>
                       <span className={`status-badge status-${org.status.toLowerCase()}`}>
-                        {org.status}
+                        {org.status === 'active' ? 'ንቁ' : 
+                         org.status === 'pending' ? 'በመጠባበቅ ላይ' : 
+                         org.status === 'inactive' ? 'እንቅስቃሴ የለም' : 
+                         org.status}
                       </span>
                     </div>
 
@@ -222,6 +227,14 @@ export default function OrgPage() {
                       {org.industry && (
                         <span className="org-industry">{org.industry}</span>
                       )}
+                    </div>
+
+                    {/* Owner */}
+                    <div className="org-owner">
+                      <svg className="owner-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                      <span className="org-owner-name">ባለቤት: {org.owner}</span>
                     </div>
 
                     {(org.locationCity || org.locationRegion) && (
@@ -245,9 +258,18 @@ export default function OrgPage() {
                       </div>
                     )}
 
+                    {org.phone && (
+                      <div className="org-phone">
+                        <svg className="phone-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                        <span className="org-phone-number">{org.phone}</span>
+                      </div>
+                    )}
+
                     <div className="org-footer">
                       <span className="org-date">
-                        Joined {new Date(org.createdAt).toLocaleDateString('en-US', {
+                        የተመዘገበ {new Date(org.createdAt).toLocaleDateString('en-US', {
                           year: 'numeric',
                           month: 'short',
                           day: 'numeric'
@@ -807,7 +829,7 @@ export default function OrgPage() {
           align-items: center;
           gap: 0.5rem;
           flex-wrap: wrap;
-          margin-bottom: 0.75rem;
+          margin-bottom: 0.5rem;
         }
 
         .org-type {
@@ -825,6 +847,29 @@ export default function OrgPage() {
           color: #64748b;
         }
 
+        /* Owner */
+        .org-owner {
+          display: flex;
+          align-items: center;
+          gap: 0.375rem;
+          color: #64748b;
+          font-size: 0.875rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .owner-icon {
+          width: 1rem;
+          height: 1rem;
+          flex-shrink: 0;
+          color: #8b5cf6;
+        }
+
+        .org-owner-name {
+          font-weight: 500;
+          color: #1e293b;
+        }
+
+        /* Location */
         .org-location {
           display: flex;
           align-items: center;
@@ -838,9 +883,32 @@ export default function OrgPage() {
           width: 1rem;
           height: 1rem;
           flex-shrink: 0;
+          color: #3b82f6;
         }
 
+        /* Contact */
         .org-contact {
+          display: flex;
+          align-items: center;
+          gap: 0.375rem;
+          color: #64748b;
+          font-size: 0.875rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .contact-icon {
+          width: 1rem;
+          height: 1rem;
+          flex-shrink: 0;
+          color: #8b5cf6;
+        }
+
+        .org-email {
+          word-break: break-all;
+        }
+
+        /* Phone */
+        .org-phone {
           display: flex;
           align-items: center;
           gap: 0.375rem;
@@ -849,14 +917,16 @@ export default function OrgPage() {
           margin-bottom: 0.75rem;
         }
 
-        .contact-icon {
+        .phone-icon {
           width: 1rem;
           height: 1rem;
           flex-shrink: 0;
+          color: #22c55e;
         }
 
-        .org-email {
-          word-break: break-all;
+        .org-phone-number {
+          font-weight: 500;
+          color: #1e293b;
         }
 
         .org-footer {
