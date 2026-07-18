@@ -79,7 +79,7 @@ export default function NewOrganizationForm() {
             </div>
             <h1 className="form-title">ዐዲስ ድርጅቱን ይመዝግቡ</h1>
             <p className="form-subtitle">
-              ለደንበኞችና ለሠራተኞች የሚሆን የተሟላ መረጃን ያስገቡ
+              በፍሬ ሃይማኖት ሰ/ት/ቤት የሚያገለግሉ ተማሪዎች የሚሰሩባቸውን ድርጅቶች በሌሎች አባላት እንዲታወቅና ለሥራም የአባላት ቀዳሚ ምርጫ እንዲሆኑ በሰ/ት/ቤቱ የተዘጋጀ መመዝገቢያ
             </p>
           </div>
 
