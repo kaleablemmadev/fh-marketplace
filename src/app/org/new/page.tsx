@@ -7,7 +7,7 @@ export default function NewOrganizationForm() {
   const router = useRouter();
 
   const [name, setName] = useState('');
-  const [type, setType] = useState('organization');
+  const [type, setType] = useState('');
   const [industry, setIndustry] = useState('');
   const [locationCity, setLocationCity] = useState('');
   const [locationRegion, setLocationRegion] = useState('');
