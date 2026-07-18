@@ -8,6 +8,7 @@ export default function NewOrganizationForm() {
 
   const [name, setName] = useState('');
   const [type, setType] = useState('');
+  const [owner, setOwner] = useState('');
   const [industry, setIndustry] = useState('');
   const [locationCity, setLocationCity] = useState('');
   const [locationRegion, setLocationRegion] = useState('');
@@ -31,6 +32,7 @@ export default function NewOrganizationForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name,
+          owner,
           type,
           industry: industry || null,
           locationCity,
@@ -97,6 +99,23 @@ export default function NewOrganizationForm() {
                   onChange={(e) => setName(e.target.value)}
                   placeholder="የድርጅቱን ሙሉ ስም ያስገቡ"
                   required
+                  className="form-input"
+                />
+              </div>
+            </div>
+
+            {/* Owner */}
+            <div className="field-half">
+              <label htmlFor="owner" className="field-label">
+                የድርጅቱ ባለቤት ስም
+              </label>
+              <div className="input-wrapper">
+                <input
+                  id="owner"
+                  type="text"
+                  value={owner}
+                  onChange={(e) => setOwner(e.target.value)}
+                  placeholder="የባለቤት ስም"
                   className="form-input"
                 />
               </div>

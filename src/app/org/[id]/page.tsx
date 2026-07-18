@@ -7,6 +7,7 @@ import Link from 'next/link';
 interface Organization {
   id: string | number;
   name: string;
+  owner: string;
   type: string;
   industry?: string | null;
   locationCity?: string | null;
@@ -91,7 +92,7 @@ export default function OrganizationDetailPage({ params }: PageProps) {
       <div className="detail-page">
         <div className="loading-container">
           <div className="loading-spinner"></div>
-          <p className="loading-text">Loading organization details...</p>
+          <p className="loading-text">የድርጅት ዝርዝርን እየጫነ ነው...</p>
         </div>
       </div>
     );
@@ -113,7 +114,7 @@ export default function OrganizationDetailPage({ params }: PageProps) {
               Try Again
             </button>
             <Link href="/org" className="btn-primary">
-              Back to Organizations
+              ወደ ድርጅቶች ገጽ
             </Link>
           </div>
         </div>
@@ -130,10 +131,10 @@ export default function OrganizationDetailPage({ params }: PageProps) {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <h2 className="not-found-title">Organization Not Found</h2>
-          <p className="not-found-message">The organization you're looking for doesn't exist or has been removed.</p>
+          <h2 className="not-found-title">ድርጅቱ አልተገኘም</h2>
+          <p className="not-found-message">እየፈለጉ ያሉት ድርጅት ወይ ተሠርዟል ወይ ሊገኝ አልቻለም</p>
           <Link href="/org" className="btn-primary">
-            Back to Organizations
+            ወደ ድርጅቶች ገጽ
           </Link>
         </div>
       </div>
@@ -157,20 +158,20 @@ export default function OrganizationDetailPage({ params }: PageProps) {
               <svg className="back-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
-              Back to Organizations
+              ወደ ድርጅቶች ገጽ
             </Link>
             <div className="header-actions">
               <Link href={`/org/${org.id}/edit`} className="btn-edit">
                 <svg className="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                 </svg>
-                Edit
+                አስተካክል
               </Link>
               <button onClick={handleDelete} disabled={isDeleting} className="btn-delete">
                 <svg className="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                 </svg>
-                {isDeleting ? 'Deleting...' : 'Delete'}
+                {isDeleting ? 'እያጠፋ...' : 'አጥፋ'}
               </button>
             </div>
           </div>
@@ -223,7 +224,7 @@ export default function OrganizationDetailPage({ params }: PageProps) {
                       </svg>
                     </div>
                     <div>
-                      <p className="contact-label">Email</p>
+                      <p className="contact-label">ኢ-ሜይል</p>
                       <a href={`mailto:${org.email}`} className="contact-value contact-link">
                         {org.email}
                       </a>
@@ -239,7 +240,7 @@ export default function OrganizationDetailPage({ params }: PageProps) {
                       </svg>
                     </div>
                     <div>
-                      <p className="contact-label">Phone</p>
+                      <p className="contact-label">ስልክ ቁጥር</p>
                       {org.phone.map((phoneNumber, index) => (
                         <a 
                           key={index} 
@@ -261,7 +262,7 @@ export default function OrganizationDetailPage({ params }: PageProps) {
                       </svg>
                     </div>
                     <div>
-                      <p className="contact-label">Website</p>
+                      <p className="contact-label">ድኅረ ገጽ</p>
                       <a 
                         href={org.website.startsWith('http') ? org.website : `https://${org.website}`} 
                         target="_blank" 
@@ -283,7 +284,7 @@ export default function OrganizationDetailPage({ params }: PageProps) {
                       </svg>
                     </div>
                     <div>
-                      <p className="contact-label">Location</p>
+                      <p className="contact-label">መገኛ ቦታ</p>
                       <p className="contact-value">
                         {[org.locationCity, org.locationRegion].filter(Boolean).join(', ')}
                       </p>
@@ -298,15 +299,15 @@ export default function OrganizationDetailPage({ params }: PageProps) {
           <div className="detail-sidebar">
             {/* Organization Info */}
             <div className="info-card">
-              <h2 className="card-title">Organization Info</h2>
+              <h2 className="card-title">የድርጅት መረጃ</h2>
               <div className="info-list">
                 <div className="info-item">
-                  <span className="info-label">Type</span>
+                  <span className="info-label">የድርጅት ዐይነት</span>
                   <span className="info-value">{org.type}</span>
                 </div>
                 {org.industry && (
                   <div className="info-item">
-                    <span className="info-label">Industry</span>
+                    <span className="info-label">የድርጅት ዘርፍ</span>
                     <span className="info-value">{org.industry}</span>
                   </div>
                 )}
@@ -381,7 +382,7 @@ export default function OrganizationDetailPage({ params }: PageProps) {
                   <svg className="quick-action-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                   </svg>
-                  Edit Organization
+                  ድርጅት መረጃ አስተካክል
                 </Link>
                 {org.website && (
                   <a 
@@ -393,14 +394,14 @@ export default function OrganizationDetailPage({ params }: PageProps) {
                     <svg className="quick-action-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
-                    Visit Website
+                    ድኅረ ገጹን ይጎብኙ
                   </a>
                 )}
                 <button onClick={handleDelete} disabled={isDeleting} className="quick-action-btn btn-delete-small">
                   <svg className="quick-action-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                   </svg>
-                  {isDeleting ? 'Deleting...' : 'Delete Organization'}
+                  {isDeleting ? 'እያጠፋ...' : 'ድርጅቱን አጥፋ'}
                 </button>
               </div>
             </div>

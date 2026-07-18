@@ -19,6 +19,7 @@ model Admin {
 model Organization {
   id             BigInt   @id @default(autoincrement())
   name           String
+  owner          String
   type           String
   industry       String?
   locationCity   String?

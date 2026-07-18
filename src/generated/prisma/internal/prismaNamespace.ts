@@ -682,6 +682,7 @@ export type AdminScalarFieldEnum = (typeof AdminScalarFieldEnum)[keyof typeof Ad
 export const OrganizationScalarFieldEnum = {
   id: 'id',
   name: 'name',
+  owner: 'owner',
   type: 'type',
   industry: 'industry',
   locationCity: 'locationCity',

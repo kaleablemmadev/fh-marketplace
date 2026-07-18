@@ -32,6 +32,7 @@ async function main() {
     data: {
       name: "FH-Abalat Community",
       type: "Nonprofit",
+      owner: "",
       industry: "Community & Religion",
       locationCity: "Rotterdam",
       locationRegion: "South Holland",
@@ -49,6 +50,7 @@ async function main() {
     data: {
       name: "FH-Abalat Youth Group",
       type: "Nonprofit",
+      owner: "Mr. Abate R.",
       industry: "Youth & Education",
       locationCity: "Rotterdam",
       locationRegion: "South Holland",

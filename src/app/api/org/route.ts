@@ -27,6 +27,7 @@ export async function POST(request: Request) {
     const {
       name,
       type,
+      owner,
       industry,
       locationCity,
       locationRegion,
@@ -47,6 +48,7 @@ export async function POST(request: Request) {
       data: {
         name,
         type: type ?? "organization",
+        owner: owner,
         industry: industry ?? null,
         locationCity,
         locationRegion: locationRegion ?? null,

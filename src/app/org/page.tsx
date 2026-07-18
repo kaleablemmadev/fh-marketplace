@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 interface Organization {
   id: string | number;
   name: string;
+  owner: string;
   type: string;
   industry?: string | null;
   locationCity?: string | null;
@@ -69,7 +70,7 @@ export default function OrgPage() {
         <h2 className="error-title">Something went wrong</h2>
         <p className="error-message">{error}</p>
         <button onClick={() => window.location.reload()} className="retry-button">
-          Try Again
+          ድጋሚ ሞክሩ
         </button>
       </div>
     );
@@ -95,8 +96,8 @@ export default function OrgPage() {
               <span className="badge-text">Admin</span>
             </div>
             <div className="header-title-group">
-              <h1 className="page-title">Organizations</h1>
-              <p className="page-subtitle">Browse organizations submitted to the marketplace.</p>
+              <h1 className="page-title">ድርጅቶች</h1>
+              <p className="page-subtitle">የተመዘገቡ ድርጅቶች ዝርዝርን ይመልከቱ</p>
             </div>
           </div>
           <div className="header-actions">
@@ -104,7 +105,7 @@ export default function OrgPage() {
               <svg className="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
               </svg>
-              Add New Organization
+              ዐዲስ ድርጅት
             </Link>
           </div>
         </section>
@@ -119,7 +120,7 @@ export default function OrgPage() {
             </div>
             <div className="stat-content">
               <p className="stat-value">{orgs.length}</p>
-              <p className="stat-label">Total Organizations</p>
+              <p className="stat-label">የድርጅቶች ዝርዝር</p>
             </div>
           </div>
           <div className="stat-card">
@@ -140,8 +141,8 @@ export default function OrgPage() {
               </svg>
             </div>
             <div className="stat-content">
-              <p className="stat-value">{new Set(orgs.map(o => o.type)).size}</p>
-              <p className="stat-label">Organization Types</p>
+              <p className="stat-value">{new Set(orgs.map(o => o.owner)).size}</p>
+              <p className="stat-label">የድርጅት ባለቤት</p>
             </div>
           </div>
           <div className="stat-card">
@@ -153,7 +154,7 @@ export default function OrgPage() {
             </div>
             <div className="stat-content">
               <p className="stat-value">{new Set(orgs.map(o => o.locationCity).filter(Boolean)).size}</p>
-              <p className="stat-label">Cities</p>
+              <p className="stat-label">ከተማዎች</p>
             </div>
           </div>
         </div>
@@ -167,13 +168,13 @@ export default function OrgPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
               </div>
-              <h3 className="empty-title">No organizations found</h3>
-              <p className="empty-description">Get started by creating your first organization.</p>
+              <h3 className="empty-title">ምንም ድርጅት አልተገኘም</h3>
+              <p className="empty-description">ቀዳሚ ድርጅቶን በመመዝገብ ይጀምሩ</p>
               <Link href="/org/new" className="btn-primary btn-small">
                 <svg className="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                 </svg>
-                Create Organization
+                ዐዲስ ድርጅት 
               </Link>
             </div>
           </section>
@@ -183,7 +184,7 @@ export default function OrgPage() {
               <p className="list-count">{orgs.length} organization{orgs.length !== 1 ? 's' : ''}</p>
               <div className="list-filters">
                 <select className="filter-select" defaultValue="all">
-                  <option value="all">All Types</option>
+                  <option value="all">ዐይነቶች</option>
                   {Array.from(new Set(orgs.map(o => o.type))).map(type => (
                     <option key={type} value={type}>{type}</option>
                   ))}
@@ -253,7 +254,7 @@ export default function OrgPage() {
                         })}
                       </span>
                       <Link href={`/org/${org.id}`} className="link-view">
-                        View Details
+                        ዝርዝር ይመልከቱ
                         <svg className="link-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>

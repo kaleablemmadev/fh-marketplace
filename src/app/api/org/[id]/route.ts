@@ -46,6 +46,7 @@ export async function PUT(
     const {
       name,
       type,
+      owner,
       industry,
       locationCity,
       locationRegion,
@@ -79,6 +80,7 @@ export async function PUT(
       data: {
         name,
         type,
+        owner,
         industry: industry || null,
         locationCity,
         locationRegion: locationRegion || null,
@@ -175,6 +177,7 @@ export async function PATCH(
     };
 
     if (body.name !== undefined) updateData.name = body.name;
+    if (body.owner !== undefined) updateData.owner = body.owner;
     if (body.type !== undefined) updateData.type = body.type;
     if (body.industry !== undefined) updateData.industry = body.industry;
     if (body.locationCity !== undefined) updateData.locationCity = body.locationCity;

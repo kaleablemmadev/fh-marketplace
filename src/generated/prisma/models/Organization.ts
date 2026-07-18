@@ -37,6 +37,7 @@ export type OrganizationSumAggregateOutputType = {
 export type OrganizationMinAggregateOutputType = {
   id: bigint | null
   name: string | null
+  owner: string | null
   type: string | null
   industry: string | null
   locationCity: string | null
@@ -54,6 +55,7 @@ export type OrganizationMinAggregateOutputType = {
 export type OrganizationMaxAggregateOutputType = {
   id: bigint | null
   name: string | null
+  owner: string | null
   type: string | null
   industry: string | null
   locationCity: string | null
@@ -71,6 +73,7 @@ export type OrganizationMaxAggregateOutputType = {
 export type OrganizationCountAggregateOutputType = {
   id: number
   name: number
+  owner: number
   type: number
   industry: number
   locationCity: number
@@ -98,6 +101,7 @@ export type OrganizationSumAggregateInputType = {
 export type OrganizationMinAggregateInputType = {
   id?: true
   name?: true
+  owner?: true
   type?: true
   industry?: true
   locationCity?: true
@@ -115,6 +119,7 @@ export type OrganizationMinAggregateInputType = {
 export type OrganizationMaxAggregateInputType = {
   id?: true
   name?: true
+  owner?: true
   type?: true
   industry?: true
   locationCity?: true
@@ -132,6 +137,7 @@ export type OrganizationMaxAggregateInputType = {
 export type OrganizationCountAggregateInputType = {
   id?: true
   name?: true
+  owner?: true
   type?: true
   industry?: true
   locationCity?: true
@@ -236,6 +242,7 @@ export type OrganizationGroupByArgs<ExtArgs extends runtime.Types.Extensions.Int
 export type OrganizationGroupByOutputType = {
   id: bigint
   name: string
+  owner: string
   type: string
   industry: string | null
   locationCity: string | null
@@ -276,6 +283,7 @@ export type OrganizationWhereInput = {
   NOT?: Prisma.OrganizationWhereInput | Prisma.OrganizationWhereInput[]
   id?: Prisma.BigIntFilter<"Organization"> | bigint | number
   name?: Prisma.StringFilter<"Organization"> | string
+  owner?: Prisma.StringFilter<"Organization"> | string
   type?: Prisma.StringFilter<"Organization"> | string
   industry?: Prisma.StringNullableFilter<"Organization"> | string | null
   locationCity?: Prisma.StringNullableFilter<"Organization"> | string | null
@@ -294,6 +302,7 @@ export type OrganizationWhereInput = {
 export type OrganizationOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  owner?: Prisma.SortOrder
   type?: Prisma.SortOrder
   industry?: Prisma.SortOrderInput | Prisma.SortOrder
   locationCity?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -315,6 +324,7 @@ export type OrganizationWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.OrganizationWhereInput[]
   NOT?: Prisma.OrganizationWhereInput | Prisma.OrganizationWhereInput[]
   name?: Prisma.StringFilter<"Organization"> | string
+  owner?: Prisma.StringFilter<"Organization"> | string
   type?: Prisma.StringFilter<"Organization"> | string
   industry?: Prisma.StringNullableFilter<"Organization"> | string | null
   locationCity?: Prisma.StringNullableFilter<"Organization"> | string | null
@@ -333,6 +343,7 @@ export type OrganizationWhereUniqueInput = Prisma.AtLeast<{
 export type OrganizationOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  owner?: Prisma.SortOrder
   type?: Prisma.SortOrder
   industry?: Prisma.SortOrderInput | Prisma.SortOrder
   locationCity?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -358,6 +369,7 @@ export type OrganizationScalarWhereWithAggregatesInput = {
   NOT?: Prisma.OrganizationScalarWhereWithAggregatesInput | Prisma.OrganizationScalarWhereWithAggregatesInput[]
   id?: Prisma.BigIntWithAggregatesFilter<"Organization"> | bigint | number
   name?: Prisma.StringWithAggregatesFilter<"Organization"> | string
+  owner?: Prisma.StringWithAggregatesFilter<"Organization"> | string
   type?: Prisma.StringWithAggregatesFilter<"Organization"> | string
   industry?: Prisma.StringNullableWithAggregatesFilter<"Organization"> | string | null
   locationCity?: Prisma.StringNullableWithAggregatesFilter<"Organization"> | string | null
@@ -375,6 +387,7 @@ export type OrganizationScalarWhereWithAggregatesInput = {
 export type OrganizationCreateInput = {
   id?: bigint | number
   name: string
+  owner: string
   type: string
   industry?: string | null
   locationCity?: string | null
@@ -393,6 +406,7 @@ export type OrganizationCreateInput = {
 export type OrganizationUncheckedCreateInput = {
   id?: bigint | number
   name: string
+  owner: string
   type: string
   industry?: string | null
   locationCity?: string | null
@@ -411,6 +425,7 @@ export type OrganizationUncheckedCreateInput = {
 export type OrganizationUpdateInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  owner?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.StringFieldUpdateOperationsInput | string
   industry?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   locationCity?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -429,6 +444,7 @@ export type OrganizationUpdateInput = {
 export type OrganizationUncheckedUpdateInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  owner?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.StringFieldUpdateOperationsInput | string
   industry?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   locationCity?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -447,6 +463,7 @@ export type OrganizationUncheckedUpdateInput = {
 export type OrganizationCreateManyInput = {
   id?: bigint | number
   name: string
+  owner: string
   type: string
   industry?: string | null
   locationCity?: string | null
@@ -464,6 +481,7 @@ export type OrganizationCreateManyInput = {
 export type OrganizationUpdateManyMutationInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  owner?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.StringFieldUpdateOperationsInput | string
   industry?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   locationCity?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -481,6 +499,7 @@ export type OrganizationUpdateManyMutationInput = {
 export type OrganizationUncheckedUpdateManyInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  owner?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.StringFieldUpdateOperationsInput | string
   industry?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   locationCity?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -498,6 +517,7 @@ export type OrganizationUncheckedUpdateManyInput = {
 export type OrganizationCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  owner?: Prisma.SortOrder
   type?: Prisma.SortOrder
   industry?: Prisma.SortOrder
   locationCity?: Prisma.SortOrder
@@ -519,6 +539,7 @@ export type OrganizationAvgOrderByAggregateInput = {
 export type OrganizationMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  owner?: Prisma.SortOrder
   type?: Prisma.SortOrder
   industry?: Prisma.SortOrder
   locationCity?: Prisma.SortOrder
@@ -536,6 +557,7 @@ export type OrganizationMaxOrderByAggregateInput = {
 export type OrganizationMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  owner?: Prisma.SortOrder
   type?: Prisma.SortOrder
   industry?: Prisma.SortOrder
   locationCity?: Prisma.SortOrder
@@ -594,6 +616,7 @@ export type OrganizationUpdateOneWithoutPeopleNestedInput = {
 export type OrganizationCreateWithoutPeopleInput = {
   id?: bigint | number
   name: string
+  owner: string
   type: string
   industry?: string | null
   locationCity?: string | null
@@ -611,6 +634,7 @@ export type OrganizationCreateWithoutPeopleInput = {
 export type OrganizationUncheckedCreateWithoutPeopleInput = {
   id?: bigint | number
   name: string
+  owner: string
   type: string
   industry?: string | null
   locationCity?: string | null
@@ -644,6 +668,7 @@ export type OrganizationUpdateToOneWithWhereWithoutPeopleInput = {
 export type OrganizationUpdateWithoutPeopleInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  owner?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.StringFieldUpdateOperationsInput | string
   industry?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   locationCity?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -661,6 +686,7 @@ export type OrganizationUpdateWithoutPeopleInput = {
 export type OrganizationUncheckedUpdateWithoutPeopleInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  owner?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.StringFieldUpdateOperationsInput | string
   industry?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   locationCity?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -709,6 +735,7 @@ export type OrganizationCountOutputTypeCountPeopleArgs<ExtArgs extends runtime.T
 export type OrganizationSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  owner?: boolean
   type?: boolean
   industry?: boolean
   locationCity?: boolean
@@ -728,6 +755,7 @@ export type OrganizationSelect<ExtArgs extends runtime.Types.Extensions.Internal
 export type OrganizationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  owner?: boolean
   type?: boolean
   industry?: boolean
   locationCity?: boolean
@@ -745,6 +773,7 @@ export type OrganizationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
 export type OrganizationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  owner?: boolean
   type?: boolean
   industry?: boolean
   locationCity?: boolean
@@ -762,6 +791,7 @@ export type OrganizationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
 export type OrganizationSelectScalar = {
   id?: boolean
   name?: boolean
+  owner?: boolean
   type?: boolean
   industry?: boolean
   locationCity?: boolean
@@ -776,7 +806,7 @@ export type OrganizationSelectScalar = {
   updatedAt?: boolean
 }
 
-export type OrganizationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "type" | "industry" | "locationCity" | "locationRegion" | "website" | "phone" | "email" | "description" | "status" | "verified" | "createdAt" | "updatedAt", ExtArgs["result"]["organization"]>
+export type OrganizationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "owner" | "type" | "industry" | "locationCity" | "locationRegion" | "website" | "phone" | "email" | "description" | "status" | "verified" | "createdAt" | "updatedAt", ExtArgs["result"]["organization"]>
 export type OrganizationInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   people?: boolean | Prisma.Organization$peopleArgs<ExtArgs>
   _count?: boolean | Prisma.OrganizationCountOutputTypeDefaultArgs<ExtArgs>
@@ -792,6 +822,7 @@ export type $OrganizationPayload<ExtArgs extends runtime.Types.Extensions.Intern
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: bigint
     name: string
+    owner: string
     type: string
     industry: string | null
     locationCity: string | null
@@ -1230,6 +1261,7 @@ export interface Prisma__OrganizationClient<T, Null = never, ExtArgs extends run
 export interface OrganizationFieldRefs {
   readonly id: Prisma.FieldRef<"Organization", 'BigInt'>
   readonly name: Prisma.FieldRef<"Organization", 'String'>
+  readonly owner: Prisma.FieldRef<"Organization", 'String'>
   readonly type: Prisma.FieldRef<"Organization", 'String'>
   readonly industry: Prisma.FieldRef<"Organization", 'String'>
   readonly locationCity: Prisma.FieldRef<"Organization", 'String'>
