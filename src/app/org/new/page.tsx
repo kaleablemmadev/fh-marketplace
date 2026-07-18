@@ -75,11 +75,11 @@ export default function NewOrganizationForm() {
               <svg className="badge-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
               </svg>
-              <span className="badge-text">New Organization</span>
+              <span className="badge-text">ዐዲስ ድርጅት</span>
             </div>
-            <h1 className="form-title">Create an organization profile</h1>
+            <h1 className="form-title">ዐዲስ ድርጅቱን ይመዝግቡ</h1>
             <p className="form-subtitle">
-              Add the key details to introduce your organization to the marketplace.
+              ለደንበኞችና ለሠራተኞች የሚሆን የተሟላ መረጃን ያስገቡ
             </p>
           </div>
 
@@ -87,7 +87,7 @@ export default function NewOrganizationForm() {
             {/* Name */}
             <div className="field-full">
               <label htmlFor="name" className="field-label">
-                Organization Name <span className="required">*</span>
+                የድርጅቱ ስም <span className="required">*</span>
               </label>
               <div className="input-wrapper">
                 <input
@@ -95,7 +95,7 @@ export default function NewOrganizationForm() {
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Enter company or organization name"
+                  placeholder="የድርጅቱን ሙሉ ስም ያስገቡ"
                   required
                   className="form-input"
                 />
@@ -105,7 +105,7 @@ export default function NewOrganizationForm() {
             {/* Type */}
             <div className="field-half">
               <label htmlFor="type" className="field-label">
-                Type
+                የድርጅቱ ዐይነት
               </label>
               <div className="input-wrapper">
                 <input
@@ -113,7 +113,7 @@ export default function NewOrganizationForm() {
                   type="text"
                   value={type}
                   onChange={(e) => setType(e.target.value)}
-                  placeholder="e.g. Nonprofit, Company"
+                  placeholder="e.g. NGO፣ የበጎ አድራጎት ድርጅት፣ መደበኛ ድርጅት"
                   className="form-input"
                 />
               </div>
@@ -122,7 +122,7 @@ export default function NewOrganizationForm() {
             {/* Industry */}
             <div className="field-half">
               <label htmlFor="industry" className="field-label">
-                Industry
+                የድርጅቱ ዘርፍ
               </label>
               <div className="input-wrapper">
                 <input
@@ -130,7 +130,7 @@ export default function NewOrganizationForm() {
                   type="text"
                   value={industry}
                   onChange={(e) => setIndustry(e.target.value)}
-                  placeholder="Enter industry"
+                  placeholder="ዘርፍ ያስገቡ"
                   className="form-input"
                 />
               </div>
@@ -139,7 +139,7 @@ export default function NewOrganizationForm() {
             {/* City */}
             <div className="field-half">
               <label htmlFor="locationCity" className="field-label">
-                City <span className="required">*</span>
+                ከተማ <span className="required">*</span>
               </label>
               <div className="input-wrapper">
                 <input
@@ -147,7 +147,7 @@ export default function NewOrganizationForm() {
                   type="text"
                   value={locationCity}
                   onChange={(e) => setLocationCity(e.target.value)}
-                  placeholder="Enter city"
+                  placeholder="የከተማ ስም"
                   required
                   className="form-input"
                 />
@@ -157,7 +157,7 @@ export default function NewOrganizationForm() {
             {/* Region */}
             <div className="field-half">
               <label htmlFor="locationRegion" className="field-label">
-                Region / Address
+                አድራሻ
               </label>
               <div className="input-wrapper">
                 <input
@@ -165,7 +165,7 @@ export default function NewOrganizationForm() {
                   type="text"
                   value={locationRegion}
                   onChange={(e) => setLocationRegion(e.target.value)}
-                  placeholder="Enter region or address"
+                  placeholder="የተብራራ አድራሻ መረጃ ያስገቡ"
                   className="form-input"
                 />
               </div>
@@ -174,7 +174,7 @@ export default function NewOrganizationForm() {
             {/* Website */}
             <div className="field-half">
               <label htmlFor="website" className="field-label">
-                Website
+                ድኅረ ገጽ (ካለዎት)
               </label>
               <div className="input-wrapper">
                 <input
@@ -191,7 +191,7 @@ export default function NewOrganizationForm() {
             {/* Email */}
             <div className="field-half">
               <label htmlFor="email" className="field-label">
-                Email
+                ኢ-ሜይል (ካለዎት)
               </label>
               <div className="input-wrapper">
                 <input
@@ -208,7 +208,7 @@ export default function NewOrganizationForm() {
             {/* Phone */}
             <div className="field-full">
               <label htmlFor="phone" className="field-label">
-                Phone Number <span className="required">*</span>
+                ስልክ ቁጥር <span className="required">*</span>
               </label>
               <div className="input-wrapper">
                 <input
@@ -216,7 +216,7 @@ export default function NewOrganizationForm() {
                   type="tel"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  placeholder="+31-10-1234567 or +251911223344"
+                  placeholder="+251911223344 ወይም 0911223344"
                   required
                   className="form-input"
                 />
@@ -226,14 +226,14 @@ export default function NewOrganizationForm() {
             {/* Description */}
             <div className="field-full">
               <label htmlFor="description" className="field-label">
-                Description
+                ማብራሪያ
               </label>
               <div className="input-wrapper">
                 <textarea
                   id="description"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  placeholder="Tell people a bit about your organization"
+                  placeholder="ስለድርጅትዎ ለሰዎች ማብራሪያን ይስጡ"
                   rows={4}
                   className="form-textarea"
                 />
@@ -266,14 +266,14 @@ export default function NewOrganizationForm() {
                           <circle className="spinner-circle" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                           <path className="spinner-path" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
-                        Saving...
+                        እየመዘገበ...
                       </>
                     ) : (
                       <>
                         <svg className="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
                         </svg>
-                        Save Organization
+                        ድርጅቶን ይመዝግቡ
                       </>
                     )}
                   </span>
@@ -292,7 +292,7 @@ export default function NewOrganizationForm() {
 
           <div className="form-footer">
             <p className="footer-text">
-              All fields marked with <span className="required">*</span> are required
+              <span className="required">*</span> ያላቸው በሙሉ ግዴታ ናቸው።
             </p>
           </div>
         </div>
