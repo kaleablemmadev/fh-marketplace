@@ -4,9 +4,10 @@ import prisma from '@/src/lib/prisma';
 // GET - Fetch a single organization by ID
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params;
     const { id } = params;
 
     const organization = await prisma.organization.findUnique({
@@ -35,9 +36,10 @@ export async function GET(
 // PUT - Update an organization by ID
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params;
     const { id } = params;
     const body = await request.json();
 
@@ -103,9 +105,10 @@ export async function PUT(
 // DELETE - Delete an organization by ID
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params;
     const { id } = params;
 
     // Check if organization exists
@@ -145,9 +148,10 @@ export async function DELETE(
 // PATCH - Partially update an organization by ID
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params;
     const { id } = params;
     const body = await request.json();
 
